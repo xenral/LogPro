@@ -1,0 +1,43 @@
+{
+    "name": "logmate",
+    "version": "0.1.0",
+    "description": "A minimal, structured logging utility for TypeScript projects",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "test": "jest",
+        "prepublishOnly": "npm run build",
+        "example": "sh ./run-examples.sh"
+    },
+    "keywords": [
+        "logging",
+        "logger",
+        "typescript",
+        "structured",
+        "json"
+    ],
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/jest": "^29.5.0",
+        "@types/node": "^18.15.11",
+        "jest": "^29.5.0",
+        "ts-jest": "^29.1.0",
+        "typescript": "^5.0.4"
+    },
+    "engines": {
+        "node": ">=14.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/username/logmate.git"
+    },
+    "bugs": {
+        "url": "https://github.com/username/logmate/issues"
+    },
+    "homepage": "https://github.com/username/logmate#readme"
+}
