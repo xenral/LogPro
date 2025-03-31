@@ -1,18 +1,25 @@
 # Changelog
 
-All notable changes to LogMate will be documented in this file.
+All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [0.2.0] - 2025-03-31
+
+### Added
+- Telegram transport for sending logs to Telegram channels/groups
+- Transport system to support multiple log destinations
+- Filtering capabilities for transports to selectively forward logs
+
+### Changed
+- Renamed package from "logmate" to "smartlog"
+- Updated documentation with Telegram integration examples
 
 ## [0.1.0] - 2025-03-30
 
 ### Added
-- Initial release of LogMate
-- Core logger implementation with five log levels (debug, info, warn, error, fatal)
-- JSON and pretty formatters with color support
-- Context support for structured logging
-- Child loggers for extending context
-- Environment-aware configuration based on NODE_ENV
-- Factory functions for creating loggers
+- Initial release
+- Core logging functionality with 5 log levels (debug, info, warn, error, fatal)
+- Structured JSON logging
+- Pretty formatting with colors for development
+- Child loggers with context inheritance
+- Environment-aware configuration
 - Comprehensive documentation and examples 
