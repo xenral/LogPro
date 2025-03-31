@@ -1,6 +1,6 @@
 {
-    "name": "logpro",
-    "version": "0.4.0",
+    "name": "@xenral/logpro",
+    "version": "0.4.1",
     "description": "A minimal, structured logging utility for TypeScript projects",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",

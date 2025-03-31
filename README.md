@@ -16,19 +16,19 @@ A minimalistic, structured logging utility for TypeScript projects.
 ## Installation
 
 ```bash
-npm install logpro
+npm install @xenral/logpro
 ```
 
 or
 
 ```bash
-yarn add logpro
+yarn add @xenral/logpro
 ```
 
 ## Quick Start
 
 ```typescript
-import { logger } from 'logpro';
+import { logger } from '@xenral/logpro';
 
 // Basic logging
 logger.info('Application started');
@@ -51,7 +51,7 @@ try {
 ### Creating Named Loggers
 
 ```typescript
-import { getLogger } from 'logpro';
+import { getLogger } from '@xenral/logpro';
 
 const dbLogger = getLogger('database');
 const authLogger = getLogger('auth');
@@ -63,7 +63,7 @@ authLogger.warn('Invalid login attempt', { username: 'user123', ip: '192.168.1.1
 ### Customizing Log Level
 
 ```typescript
-import { getLogger, LogLevel } from 'logpro';
+import { getLogger, LogLevel } from '@xenral/logpro';
 
 const logger = getLogger('app')
   .setLevel(LogLevel.DEBUG);
@@ -75,7 +75,7 @@ logger.debug('Debugging information');
 ### Changing Output Format
 
 ```typescript
-import { getLogger } from 'logpro';
+import { getLogger } from '@xenral/logpro';
 
 // JSON format (default in production)
 const jsonLogger = getLogger('api')
@@ -89,7 +89,7 @@ const prettyLogger = getLogger('ui')
 ### Creating Child Loggers with Context
 
 ```typescript
-import { getLogger } from 'logpro';
+import { getLogger } from '@xenral/logpro';
 
 const logger = getLogger('requestHandler');
 
@@ -111,7 +111,7 @@ function handleRequest(req) {
 ### Environment-Aware Logger
 
 ```typescript
-import { createEnvLogger } from 'logpro';
+import { createEnvLogger } from '@xenral/logpro';
 
 // Automatically configures based on NODE_ENV
 const logger = createEnvLogger('app');
@@ -126,7 +126,7 @@ const logger = createEnvLogger('app');
 Optionally send important logs directly to a Telegram channel for real-time monitoring:
 
 ```typescript
-import { getLogger, LogLevel, TelegramTransport } from 'logpro';
+import { getLogger, LogLevel, TelegramTransport } from '@xenral/logpro';
 
 // First install the required dependency
 // npm install node-telegram-bot-api

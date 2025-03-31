@@ -44,7 +44,7 @@ LogPro is a minimal, structured logging utility for TypeScript projects that pro
 
 ## Next Steps
 
-1. **Publish to NPM**: Run `npm publish --access=public` to make the smartlog package available
+1. **Publish to NPM**: Run `npm publish --access=public` to make the @xenral/logpro package available
 2. **Add More Transports**: Implement file, HTTP, or external logging service integrations
 3. **Improve Test Coverage**: Add more tests for edge cases and factory functions
 4. **Add Configuration via Environment Variables**: Allow configuration through env vars
