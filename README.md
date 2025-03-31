@@ -1,4 +1,4 @@
-# LogMate
+# SmartLog
 
 A minimalistic, structured logging utility for TypeScript projects.
 
@@ -16,19 +16,19 @@ A minimalistic, structured logging utility for TypeScript projects.
 ## Installation
 
 ```bash
-npm install @xenral/logmate
+npm install smartlog
 ```
 
 or
 
 ```bash
-yarn add @xenral/logmate
+yarn add smartlog
 ```
 
 ## Quick Start
 
 ```typescript
-import { logger } from '@xenral/logmate';
+import { logger } from 'smartlog';
 
 // Basic logging
 logger.info('Application started');
@@ -51,7 +51,7 @@ try {
 ### Creating Named Loggers
 
 ```typescript
-import { getLogger } from '@xenral/logmate';
+import { getLogger } from 'smartlog';
 
 const dbLogger = getLogger('database');
 const authLogger = getLogger('auth');
@@ -63,7 +63,7 @@ authLogger.warn('Invalid login attempt', { username: 'user123', ip: '192.168.1.1
 ### Customizing Log Level
 
 ```typescript
-import { getLogger, LogLevel } from '@xenral/logmate';
+import { getLogger, LogLevel } from 'smartlog';
 
 const logger = getLogger('app')
   .setLevel(LogLevel.DEBUG);
@@ -75,7 +75,7 @@ logger.debug('Debugging information');
 ### Changing Output Format
 
 ```typescript
-import { getLogger } from '@xenral/logmate';
+import { getLogger } from 'smartlog';
 
 // JSON format (default in production)
 const jsonLogger = getLogger('api')
@@ -89,7 +89,7 @@ const prettyLogger = getLogger('ui')
 ### Creating Child Loggers with Context
 
 ```typescript
-import { getLogger } from '@xenral/logmate';
+import { getLogger } from 'smartlog';
 
 const logger = getLogger('requestHandler');
 
@@ -111,7 +111,7 @@ function handleRequest(req) {
 ### Environment-Aware Logger
 
 ```typescript
-import { createEnvLogger } from '@xenral/logmate';
+import { createEnvLogger } from 'smartlog';
 
 // Automatically configures based on NODE_ENV
 const logger = createEnvLogger('app');
@@ -126,7 +126,7 @@ const logger = createEnvLogger('app');
 Send important logs directly to a Telegram channel for real-time monitoring:
 
 ```typescript
-import { getLogger, LogLevel, TelegramTransport } from 'scriptr';
+import { getLogger, LogLevel, TelegramTransport } from 'smartlog';
 
 // Create a logger
 const logger = getLogger('app');
