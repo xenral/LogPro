@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0] - 2025-03-31
+
+### Changed
+- Made the package zero-dependency by making Telegram transport optional
+- Moved node-telegram-bot-api to peer dependencies with optional flag
+- Improved error handling when optional dependencies are not installed
+
 ## [0.2.0] - 2025-03-31
 
 ### Added

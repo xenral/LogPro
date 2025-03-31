@@ -10,7 +10,8 @@ SmartLog is a minimal, structured logging utility for TypeScript projects that p
 - Child loggers for extending context
 - Pretty formatting with color support for development
 - Environment-aware configuration based on NODE_ENV
-- Minimal dependencies and footprint
+- Zero dependencies with optional plugins
+- Extensible transport system
 
 ## Project Structure
 

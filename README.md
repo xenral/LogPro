@@ -10,8 +10,8 @@ A minimalistic, structured logging utility for TypeScript projects.
 - 🌍 **Environment-aware** - Automatically adjusts configuration based on environment
 - 🎨 **Pretty formatting** - Human-readable output with optional colors for development
 - 🔧 **Customizable** - Easily configurable to match your needs
-- 🌱 **Lightweight** - Minimal dependencies and small footprint
-- 📲 **Transports** - Send logs to various destinations including Telegram
+- 🌱 **Zero dependencies** - Core logging with no external dependencies
+- 📲 **Optional transports** - Extend with transports like Telegram (opt-in only)
 
 ## Installation
 
@@ -121,12 +121,15 @@ const logger = createEnvLogger('app');
 // In production: JSON output, INFO level
 ```
 
-### Sending Logs to Telegram
+### Sending Logs to Telegram (Optional)
 
-Send important logs directly to a Telegram channel for real-time monitoring:
+Optionally send important logs directly to a Telegram channel for real-time monitoring:
 
 ```typescript
 import { getLogger, LogLevel, TelegramTransport } from 'smartlog';
+
+// First install the required dependency
+// npm install node-telegram-bot-api
 
 // Create a logger
 const logger = getLogger('app');
@@ -155,10 +158,11 @@ logger.error('Database connection failed', {
 
 To set up the Telegram integration:
 
-1. Create a bot using [BotFather](https://t.me/botfather) and get the token
-2. Add the bot to your channel or group
-3. Get the chat ID (you can use the [@username_to_id_bot](https://t.me/username_to_id_bot))
-4. Configure the TelegramTransport with your token and chat ID
+1. Install the optional dependency: `npm install node-telegram-bot-api`
+2. Create a bot using [BotFather](https://t.me/botfather) and get the token
+3. Add the bot to your channel or group
+4. Get the chat ID (you can use the [@username_to_id_bot](https://t.me/username_to_id_bot))
+5. Configure the TelegramTransport with your token and chat ID
 
 ## API Reference
 
