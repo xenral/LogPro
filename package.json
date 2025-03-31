@@ -1,6 +1,6 @@
 {
-    "name": "smartlog",
-    "version": "0.3.0",
+    "name": "logpro",
+    "version": "0.4.0",
     "description": "A minimal, structured logging utility for TypeScript projects",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -44,10 +44,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/xenral/smartlog.git"
+        "url": "https://github.com/xenral/logpro.git"
     },
     "bugs": {
-        "url": "https://github.com/xenral/smartlog/issues"
+        "url": "https://github.com/xenral/logpro/issues"
     },
-    "homepage": "https://github.com/xenral/smartlog#readme"
+    "homepage": "https://github.com/xenral/logpro#readme"
 }

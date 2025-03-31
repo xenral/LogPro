@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] - 2025-03-31
+
+### Changed
+- Renamed package from "smartlog" to "logpro"
+- Updated all documentation and examples with the new package name
+
 ## [0.3.0] - 2025-03-31
 
 ### Changed

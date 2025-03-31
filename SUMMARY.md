@@ -1,8 +1,8 @@
-# SmartLog Project Summary
+# LogPro Project Summary
 
 ## Overview
 
-SmartLog is a minimal, structured logging utility for TypeScript projects that provides:
+LogPro is a minimal, structured logging utility for TypeScript projects that provides:
 
 - Structured JSON logging for easy integration with log analysis tools
 - Five log levels: debug, info, warn, error, and fatal

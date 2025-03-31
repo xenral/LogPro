@@ -38,7 +38,7 @@ export class TelegramTransport implements LogTransport {
     if (!TelegramBot) {
       this.missingDependency = true;
       console.warn(
-        '[SmartLog] node-telegram-bot-api package is not installed. ' +
+        '[LogPro] node-telegram-bot-api package is not installed. ' +
         'Telegram transport will not work. ' +
         'Install it with: npm install node-telegram-bot-api'
       );
@@ -50,7 +50,7 @@ export class TelegramTransport implements LogTransport {
       this.bot = new TelegramBot(this.options.token, { polling: false });
       this.ready = true;
     } catch (error) {
-      console.error('[SmartLog] Failed to initialize Telegram bot:', error);
+      console.error('[LogPro] Failed to initialize Telegram bot:', error);
     }
   }
 
@@ -74,7 +74,7 @@ export class TelegramTransport implements LogTransport {
     // Send the message
     this.bot.sendMessage(this.options.chatId, formattedMessage)
       .catch((error: Error) => {
-        console.error('[SmartLog] Error sending log to Telegram:', error);
+        console.error('[LogPro] Error sending log to Telegram:', error);
       });
   }
 
