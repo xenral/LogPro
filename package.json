@@ -34,10 +34,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/username/logmate.git"
+        "url": "https://github.com/xenral/logmate.git"
     },
     "bugs": {
-        "url": "https://github.com/username/logmate/issues"
+        "url": "https://github.com/xenral/logmate/issues"
     },
-    "homepage": "https://github.com/username/logmate#readme"
+    "homepage": "https://github.com/xenral/logmate#readme"
 }
