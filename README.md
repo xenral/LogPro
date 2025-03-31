@@ -11,23 +11,24 @@ A minimalistic, structured logging utility for TypeScript projects.
 - 🎨 **Pretty formatting** - Human-readable output with optional colors for development
 - 🔧 **Customizable** - Easily configurable to match your needs
 - 🌱 **Lightweight** - Minimal dependencies and small footprint
+- 📲 **Transports** - Send logs to various destinations including Telegram
 
 ## Installation
 
 ```bash
-npm install logmate
+npm install @xenral/logmate
 ```
 
 or
 
 ```bash
-yarn add logmate
+yarn add @xenral/logmate
 ```
 
 ## Quick Start
 
 ```typescript
-import { logger } from 'logmate';
+import { logger } from '@xenral/logmate';
 
 // Basic logging
 logger.info('Application started');
@@ -50,7 +51,7 @@ try {
 ### Creating Named Loggers
 
 ```typescript
-import { getLogger } from 'logmate';
+import { getLogger } from '@xenral/logmate';
 
 const dbLogger = getLogger('database');
 const authLogger = getLogger('auth');
@@ -62,7 +63,7 @@ authLogger.warn('Invalid login attempt', { username: 'user123', ip: '192.168.1.1
 ### Customizing Log Level
 
 ```typescript
-import { getLogger, LogLevel } from 'logmate';
+import { getLogger, LogLevel } from '@xenral/logmate';
 
 const logger = getLogger('app')
   .setLevel(LogLevel.DEBUG);
@@ -74,7 +75,7 @@ logger.debug('Debugging information');
 ### Changing Output Format
 
 ```typescript
-import { getLogger } from 'logmate';
+import { getLogger } from '@xenral/logmate';
 
 // JSON format (default in production)
 const jsonLogger = getLogger('api')
@@ -88,7 +89,7 @@ const prettyLogger = getLogger('ui')
 ### Creating Child Loggers with Context
 
 ```typescript
-import { getLogger } from 'logmate';
+import { getLogger } from '@xenral/logmate';
 
 const logger = getLogger('requestHandler');
 
@@ -110,7 +111,7 @@ function handleRequest(req) {
 ### Environment-Aware Logger
 
 ```typescript
-import { createEnvLogger } from 'logmate';
+import { createEnvLogger } from '@xenral/logmate';
 
 // Automatically configures based on NODE_ENV
 const logger = createEnvLogger('app');
@@ -119,6 +120,45 @@ const logger = createEnvLogger('app');
 // In test: Default output, WARN level
 // In production: JSON output, INFO level
 ```
+
+### Sending Logs to Telegram
+
+Send important logs directly to a Telegram channel for real-time monitoring:
+
+```typescript
+import { getLogger, LogLevel, TelegramTransport } from 'scriptr';
+
+// Create a logger
+const logger = getLogger('app');
+
+// Create a Telegram transport
+const telegramTransport = new TelegramTransport({
+  token: 'YOUR_TELEGRAM_BOT_TOKEN',
+  chatId: 'YOUR_CHAT_ID',
+  minLevel: LogLevel.ERROR, // Only send ERROR and FATAL logs
+  // Optional: Add a filter for specific logs
+  filter: (entry) => entry.context.important === true
+});
+
+// Add the transport to the logger
+logger.addTransport(telegramTransport);
+
+// Regular logs will go to console only
+logger.info('Application started');
+
+// Error logs will go to both console and Telegram
+logger.error('Database connection failed', { 
+  important: true,
+  dbHost: 'production-db-1'
+});
+```
+
+To set up the Telegram integration:
+
+1. Create a bot using [BotFather](https://t.me/botfather) and get the token
+2. Add the bot to your channel or group
+3. Get the chat ID (you can use the [@username_to_id_bot](https://t.me/username_to_id_bot))
+4. Configure the TelegramTransport with your token and chat ID
 
 ## API Reference
 

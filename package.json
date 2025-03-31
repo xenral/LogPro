@@ -1,5 +1,5 @@
 {
-    "name": "logmate",
+    "name": "scriptr",
     "version": "0.1.0",
     "description": "A minimal, structured logging utility for TypeScript projects",
     "main": "dist/index.js",
@@ -25,6 +25,7 @@
     "devDependencies": {
         "@types/jest": "^29.5.0",
         "@types/node": "^18.15.11",
+        "@types/node-telegram-bot-api": "^0.64.8",
         "jest": "^29.5.0",
         "ts-jest": "^29.1.0",
         "typescript": "^5.0.4"
@@ -39,5 +40,8 @@
     "bugs": {
         "url": "https://github.com/xenral/logmate/issues"
     },
-    "homepage": "https://github.com/xenral/logmate#readme"
+    "homepage": "https://github.com/xenral/logmate#readme",
+    "dependencies": {
+        "node-telegram-bot-api": "^0.66.0"
+    }
 }

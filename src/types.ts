@@ -39,6 +39,52 @@ export interface LogEntry {
 export type LogFormatter = (entry: LogEntry) => string;
 
 /**
+ * Transport interface for sending logs to different destinations
+ */
+export interface LogTransport {
+  /**
+   * Process a log entry
+   */
+  log(entry: LogEntry): void;
+
+  /**
+   * Optional filter function to determine if this transport
+   * should process a particular log entry
+   */
+  filter?(entry: LogEntry): boolean;
+}
+
+/**
+ * Telegram transport options
+ */
+export interface TelegramTransportOptions {
+  /**
+   * Telegram Bot API token
+   */
+  token: string;
+
+  /**
+   * Chat ID to send messages to
+   */
+  chatId: string;
+
+  /**
+   * Minimum log level to send to Telegram
+   */
+  minLevel?: LogLevel;
+
+  /**
+   * Optional filter function
+   */
+  filter?: (entry: LogEntry) => boolean;
+  
+  /**
+   * Optional formatter function
+   */
+  formatter?: LogFormatter;
+}
+
+/**
  * Configuration options for the logger
  */
 export interface LoggerOptions {
@@ -61,4 +107,9 @@ export interface LoggerOptions {
    * Enable/disable color output
    */
   enableColors?: boolean;
+
+  /**
+   * Array of log transports
+   */
+  transports?: LogTransport[];
 } 

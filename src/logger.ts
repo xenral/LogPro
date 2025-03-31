@@ -1,4 +1,4 @@
-import { LogEntry, LogFormatter, LogLevel, LogLevelValue, LoggerOptions } from './types';
+import { LogEntry, LogFormatter, LogLevel, LogLevelValue, LoggerOptions, LogTransport } from './types';
 import { jsonFormatter, prettyFormatter } from './formatters';
 
 /**
@@ -8,7 +8,8 @@ const DEFAULT_OPTIONS: LoggerOptions = {
   minLevel: LogLevel.INFO,
   formatter: jsonFormatter,
   context: {},
-  enableColors: false
+  enableColors: false,
+  transports: []
 };
 
 /**
@@ -68,6 +69,14 @@ export class Logger {
   }
 
   /**
+   * Add a transport
+   */
+  addTransport(transport: LogTransport): Logger {
+    this.options.transports.push(transport);
+    return this;
+  }
+
+  /**
    * Internal log method
    */
   private log(level: LogLevel, message: string, contextOrError?: Record<string, any> | Error, error?: Error): void {
@@ -122,6 +131,15 @@ export class Logger {
       default:
         console.log(formattedLog);
     }
+
+    // Send to all transports
+    this.options.transports.forEach(transport => {
+      try {
+        transport.log(entry);
+      } catch (err) {
+        console.error('Error in transport:', err);
+      }
+    });
   }
 
   /**

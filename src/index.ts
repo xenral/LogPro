@@ -2,6 +2,7 @@ export * from './types';
 export * from './logger';
 export * from './formatters';
 export * from './factory';
+export * from './transports';
 
 // Re-export commonly used functions for convenience
 import { getLogger, createEnvLogger } from './factory';
